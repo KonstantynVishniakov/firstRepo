@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Constructor</title>
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/form.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.form.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/html2canvas.js"></script>
+    <script src="https://kit.fontawesome.com/9151ddf599.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="header">
+    <div class="phoneNumber">
+        <i class="fas fa-phone-square-alt"> </i>
+        <span><a href="tel:+380687662296">380687662296</a></span>
+</div>
+    <div><a href="#sizes">Размеры</a></div>
+    <div><a href="#inform">Контакты</a></div>
+    <div><a href="#contacts">О нас</a></div>
+</div>
+<h1>Конструктор товаров онлайн.</h1>
+<div class="pageWrapper">
+<div class="sideBarLeft">
+    <p><h3>Добавить:</h3>
+    <div class="buttonWrapper">
+    <div>
+        <button class="labelButton btn photo">Фото</button>
+        </div>
+<!--        <div>-->
+<!--        <button class="labelButton btn text">Текст</button>-->
+<!--        </div>-->
+        <div>
+        <button class="labelButton btn print">Принты</button>
+        </div>
+    </div>
+    <div class="prints">
+        <div class="printItems"><img src="img/prints/bawl_stars_1.png" alt=""></div>
+        <div class="printItems"><img src="img/prints/yoda.png" alt=""></div>
+        <div class="printItems"><img src="img/prints/rouge.png" alt=""></div>
+        <div class="printItems"><img src="img/prints/cat.png" alt=""></div>
+        <div class="printItems"><img src="img/prints/father.png" alt=""></div>
+        <div class="printItems"><img src="img/prints/bird.png" alt=""></div>
+        <div class="printItems"><img src="img/prints/duck.png" alt=""></div>
+        <div class="printItems"><img src="img/prints/revil.png" alt=""></div>
+        <div class="printItems"><img src="img/prints/plan.png" alt=""></div>
+        <div class="printItems"><img src="img/prints/crow.png" alt=""></div>
+        <div class="printItems"><img src="img/prints/smile.png" alt=""></div>
+        <div class="printItems"><img src="img/prints/punisher.png" alt=""></div>
+        <div class="printItems"><img src="img/prints/nasa.png" alt=""></div>
+        <div class="printItems"><img src="img/prints/dinamo.png" alt=""></div>
+        <div class="printItems"><img src="img/prints/pitbul.png" alt=""></div>
+    </div>
+<!--    <div class="texts">-->
+<!--        <div>-->
+<!--            <p>Введите текст:</p>-->
+<!--        <textarea name="userTextArea" id="userText" cols="10" rows="10"> и</textarea>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <p>Шрифт надписи:</p>-->
+<!--            <select id="fonts">-->
+<!--                <option value="">Adventure</option>-->
+<!--                <option value="">Roboto</option>-->
+<!--                <option value="">Arial</option>-->
+<!--                <option value="">Times new roman</option>-->
+<!--                <option value="">Colibri</option>-->
+<!--                <option value="">Pronto</option>-->
+<!--            </select>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <button class="labelButton addText">Добавить</button>-->
+<!--        </div>-->
+<!--    </div>-->
+    <div class="uploadForm">
+        <div class="advice">
+        <p>Чтобы нанести фото на всю ширину области печати необходимо:</p>
+        <ul>
+            <li>Загрузить изображение в формате .png, или .jpeg;</li>
+            <li>Если формат .png, то желательно с прозрачным фоном;</li>
+            <li>Минимальное разрешение 200dpi, размер 1:1.</li>
+        </ul>
+        </div>
+        <form name="uploader" action="upload.php" enctype="multipart/form-data" id="form" method="POST">
+            <label class="label">Выберите картинку<input type="file" class="myInput" id="userImageInput" name="image"/></label>
+        </form>
+    </div>
+    <div class="buttonWrapper">
+        <div>
+        <button class="saveChanges labelButton">Сохранить</button>
+        </div>
+        <div>
+        <button class="deleteAll labelButton">Очистить</button>
+        </div>
+    </div>
+</div>
+<div class="consWrapper"  id="capture">
+<!--    навигация-->
+<!--    <div class="nav">-->
+<!--        <ul>-->
+<!--            <li class="btn">Выберите:</li>-->
+<!--            <li class="btn-half-wrapper">-->
+<!--                <div class="btn btn-half-man">Муж</div>-->
+<!--                <div class="btn btn-half-wom">Жен</div>-->
+<!--        </ul>-->
+<!--    </div>-->
+    <div class="constructor" >
+        <div id="pic"></div>
+        <div id="wrapperForImg">
+        <div class="viewport" title="Область печати" id="viewImgFront">
+
+        </div>
+        <div class="viewport" title="Область печати" id="viewImgBack">
+
+        </div>
+        </div>
+
+</div>
+<div id="colors">
+    <span class="color" id="white" title="Белый"> </span>
+    <span class="color" id="black" title="Черный"> </span>
+    <span class="color" id="red"   title="Красный"> </span>
+    <span class="color" id="bordo" title="Бордовый"> </span>
+    <span class="color" id="grey" title="Серый"> </span>
+    <span class="color" id="cyan" title="Голубой"> </span>
+    <span class="color" id="blue" title="Синий"> </span>
+    <span class="color" id="purple" title="Фиолетовый"> </span>
+    <span class="color" id="yellow" title="Жёлтый"> </span>
+    <span class="color" id="orange" title="Оранжевый"> </span>
+    <span class="color" id="lightGreen" title="Салатовый"> </span>
+    <span class="color" id="green" title="Зеленый"> </span>
+</div>
+    <div>
+        <form class="formForOrder">
+            <input type="hidden" name="frontScreen" id="wrapperForFrontScreen">
+            <input type="hidden" name="backScreen" id="wrapperForBackScreen">
+            <div class="formGroup">
+                <input type="text" name="firstName" placeholder=" " class="orderFormInput">
+                <label class="orderFormLabel">Имя</label>
+            </div>
+            <div class="formGroup">
+                <input type="text" name="lastName" placeholder=" " class="orderFormInput">
+                <label class="orderFormLabel">Отчество</label>
+            </div>
+            <div class="formGroup">
+                <input type="text" name="phoneNumber" placeholder=" " class="orderFormInput">
+                <label class="orderFormLabel">Номер телефона</label>
+            </div>
+            <div class="formButtonWrapper">
+                <input class="formButton" id="orderButton" type="submit" name="submit" value="Заказать">
+                <button id="addCapture" class="formButton">Добавить макет</button>
+
+            </div>
+
+        </form>
+    </div>
+</div>
+    <div class="sideBar">
+        <div id="views">
+        <span id="frontView" title="Вид спереди">
+            <img class="frontView" alt="Вид спереди">
+        </span>
+            <div>
+            <span id="backView" title="Вид сзади">
+                <img class="backView" alt="Вид сзади">
+            </span>
+            </div>
+        </div>
+        <div class="price">
+
+        </div>
+        <div>
+            <button class="order labelButton">Заказ</button>
+        </div>
+
+    </div>
+</div>
+<hr>
+<div id="sizes">
+<div class="picSizes">
+    <img src="img/sizes_man.png" alt="Размеры мужских футболок" title="Размеры мужских футболок">
+</div>
+    <div class="textSizes">
+        <table>
+            <tr>
+                <th>Размеры</th>
+                <th>A</th>
+                <th>B</th>
+            </tr>
+            <tr>
+                <td>S</td>
+                <td>50</td>
+                <td>69</td>
+            </tr>
+            <tr>
+                <td>M</td>
+                <td>52</td>
+                <td>71</td>
+            </tr>
+            <tr>
+                <td>L</td>
+                <td>55</td>
+                <td>73</td>
+            </tr>
+            <tr>
+                <td>XL</td>
+                <td>58</td>
+                <td>75</td>
+            </tr>
+            <tr>
+                <td>XXL</td>
+                <td>61</td>
+                <td>77</td>
+            </tr>
+        </table>
+        <p>А(см) - ширина, В(см) - длинна *</p>
+        <p> * указанные параметры могут отличаться на 5% в большую, или меньшую сторону.</p>
+    </div>
+</div>
+<div class="footer">
+    <div id="inform">
+        О Нас:
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad, alias aspernatur, autem dolor dolorem ea earum esse, impedit inventore libero molestiae natus optio provident reiciendis repudiandae sapiente sunt vitae.
+        </p>
+    </div>
+    <div id="contacts">
+        Контакты:
+        <ul>
+            <li>
+                <a href="tel:+380687662296">+38(068)-766-22-96.</a>
+            </li>
+            <li>
+                <a href="tel:+380950558302"> +38(095)-055-83-02.</a>
+            </li>
+            <li>
+                <a href="mailto:Quinsleykov@gmail.ru">Quinsleykov@gmail.com</a>
+            </li>
+            <li><a href="https://www.instagram.com/art.vishnyakova" target="_new" title="Our Instagram"><i class="fab fa-instagram"></i> Insta</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
